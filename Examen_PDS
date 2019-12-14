@@ -1,0 +1,155 @@
+import signals as sigs
+import pylab as plt 
+###ruido_1KHz
+x1=sigs.ruido_1KHz
+plt.plot(x1, 'b')
+plt.plot(x1, 'r.')
+#ruido_100Hz
+x2=sigs.ruido_100Hz
+plt.plot(x2, 'b')
+plt.plot(x2, 'r.')
+#ruido_extra_100Hz
+x3=sigs.ruido_extra_100Hz
+plt.plot(x3, 'b')
+plt.plot(x3, 'r.')
+#Señal ecg_100Hz
+x4=sigs.ecg_100Hz
+plt.plot(x4, 'b')
+plt.plot(x4, 'r.')
+#airflow_calibrated_100Hz
+x5=sigs.airflow_calibrated_100Hz
+plt.plot(x5, 'b')
+plt.plot(x5, 'r.')
+#Señal airflow_100Hz
+x6=sigs.airflow_100Hz
+plt.plot(x6, 'b')
+plt.plot(x6, 'r.')
+
+
+############################################FIRST DIFFERENCE#######################################
+
+######Señal ruido_1KHz
+def df(x1):
+    y1=[]
+    for i in range(0, len(x1)):
+        z=x1[i]-x1[i-1]
+        y1.append(z)
+        plt.plot(y1, 'c')
+
+df(x1)
+
+######Señal ruido_100Hz
+def df(x2):
+    y2=[]
+    for i in range(0, len(x2)):
+        z=x2[i]-x2[i-1]
+        y2.append(z)
+        plt.plot(y2, 'c')
+
+df(x2)
+
+######Señal ruido_extra_100Hz
+def df(x3):
+    y3=[]
+    for i in range(0, len(x3)):
+        z=x3[i]-x3[i-1]
+        y3.append(z)
+        plt.plot(y3, 'c')
+
+df(x3) 
+
+######Señal ecg_100Hz
+def df(x4):
+    y4=[]
+    for i in range(0, len(x4)):
+        z=x4[i]-x4[i-1]
+        y4.append(z)
+        plt.plot(y4, 'c')
+
+df(x4)
+
+######Señal airflow_calibrated_100Hz
+def df(x5):
+    y5=[]
+    for i in range(0, len(x5)):
+        z=x5[i]-x5[i-1]
+        y5.append(z)
+        plt.plot(y5, 'c')
+
+df(x5)
+
+######Señal airflow_100Hz
+def df(x6):
+    y6=[]
+    for i in range(0, len(x6)):
+        z=x6[i]-x6[i-1]
+        y6.append(z)
+        plt.plot(y6, 'c')
+
+df(x6)
+
+
+#################################################RUNNING SUM###########################xxxxxxxxx
+
+######Señal ruido_1KHz
+def ds(x1):
+    y1=[0]
+    for i in range(1, len(x1)):
+        z=x1[i]+y1[i-1]
+        y1.append(z)
+        plt.plot(y1, 'g')
+        
+ds(x1)
+
+######Señal ruido_100Hz
+def ds(x2):
+    y2=[0]
+    for i in range(1, len(x2)):
+        z=x2[i]+y2[i-1]
+        y2.append(z)
+        plt.plot(y2, 'g')
+        
+ds(x2)
+
+######Señal ruido_extra_100Hz
+def ds(x3):
+    y3=[0]
+    for i in range(1, len(x3)):
+        z=x3[i]+y3[i-1]
+        y3.append(z)
+        plt.plot(y3, 'g')
+        
+ds(x3)
+
+######Señal ecg_100Hz
+def ds(x4):
+    y4=[0]
+    for i in range(1, len(x4)):
+        z=x4[i]+y4[i-1]
+        y4.append(z)
+        plt.plot(y4, 'g')
+        
+ds(x4)
+
+#airflow_calibrated_100Hz
+def ds(x5):
+    y5=[0]
+    for i in range(1, len(x5)):
+        z=x5[i]+y5[i-1]
+        y5.append(z)
+        plt.plot(y5, 'g')
+        
+ds(x5)
+
+######Señal airflow_100Hz
+def ds(x6):
+    y6=[0]
+    for i in range(1, len(x6)):
+        z=x6[i]+y6[i-1]
+        y6.append(z)
+        plt.plot(y6, 'g')
+        
+ds(x6)
+
+
+
